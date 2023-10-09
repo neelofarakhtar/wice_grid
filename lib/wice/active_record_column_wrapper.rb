@@ -116,7 +116,8 @@ module Wice
     end
 
     def alias_or_table_name(table_alias) #:nodoc:
-      table_alias || @column.model.table_name
+      # table_alias || @column.model.table_name
+      table_alias || @column.model&.table_name || @column.name.pluralize
     end
   end
 end
